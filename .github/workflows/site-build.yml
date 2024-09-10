@@ -84,7 +84,7 @@ jobs:
 
   deploy:
     # Run if it was not triggered from remote OR the remote source was master or main.
-    # if: ${{ github.event_name != 'repository_dispatch' || contains(github.event.client_payload.ref, 'master') || contains(github.event.client_payload.ref, 'main') }}
+    if: ${{ github.event_name != 'repository_dispatch' || contains(github.event.client_payload.ref, 'antora-test') || contains(github.event.client_payload.ref, 'main') }}
     # Allow one concurrent deployment
     concurrency:
       group: "pages"
